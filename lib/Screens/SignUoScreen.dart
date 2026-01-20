@@ -87,6 +87,7 @@ class _SignuoscreenState extends State<Signuoscreen> {
                         if(formLKey.currentState!.validate()){
                           formLKey.currentState!.save();
                           helper.signUp(emailController.text, passwordController.text);
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
                         }
                     }, child: Text("Sign up")),
                   ),
