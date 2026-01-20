@@ -1,5 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebaselogindemo/Screens/CRUD_Operation_Screen.dart';
+import 'package:firebaselogindemo/Screens/LoginScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           )
         )
       ),
-      home: CrudOperationScreen(),
+      home: LoginScreen(),
     );
   }
 }
