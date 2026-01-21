@@ -114,36 +114,72 @@ class _OperationscreenState extends State<Operationscreen> {
                       },
                     ),
                   ),
-              
+
                   ElevatedButton(
-                    onPressed: () async{
-                      if(_formKey.currentState!.validate()){
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {
                         final student = StudentModel(
-                        name: nameController.text.trim(),
-                        college: collegeController.text.trim(),
-                        semester: int.parse(semesterController.text.trim()),
-                        branch: branchController.text.trim(),
-                        rollNo: int.parse(rollNoController.text.trim()),
-                      );
-                      service.createStudent("ucbs", rollNoController.text, student);
+                          name: nameController.text.trim(),
+                          college: collegeController.text.trim(),
+                          semester: int.parse(semesterController.text.trim()),
+                          branch: branchController.text.trim(),
+                          rollNo: int.parse(rollNoController.text.trim()),
+                        );
+                        service.createStudent(
+                          "ucbs",
+                          rollNoController.text,
+                          student,
+                        );
                       }
                     },
                     child: Text("Create Student"),
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                      if(_formKey.currentState!.validate()){
-                      service.updateStudent('ucbs', rollNoController.text, {
-                        "name": "Sherry",
-                        'branch': 'BBA',
-                      });
-                    }
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {
+                        Map<String, dynamic> updateData = {};
+
+                        if (nameController.text.trim().isNotEmpty) {
+                          updateData['name'] = nameController.text.trim();
+                        }
+
+                        if (collegeController.text.trim().isNotEmpty) {
+                          updateData['college'] = collegeController.text.trim();
+                        }
+
+                        if (branchController.text.trim().isNotEmpty) {
+                          updateData['branch'] = branchController.text.trim();
+                        }
+
+                        if (semesterController.text.trim().isNotEmpty) {
+                          updateData['semester'] = int.parse(
+                            semesterController.text.trim(),
+                          );
+                        }
+
+                        if (updateData.isNotEmpty) {
+                          await service.updateStudent(
+                            'ucbs',
+                            rollNoController.text,
+                            updateData,
+                          );
+                        }
+                      }
                     },
-                    child: Text("Update Student"),
+                    child: const Text("Update Student"),
                   ),
-                  ElevatedButton(onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfileScreen()));
-                  }, child: Text("Read Student")),
+
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProfileScreen(),
+                        ),
+                      );
+                    },
+                    child: Text("Read Student"),
+                  ),
                   ElevatedButton(
                     onPressed: () {
                       service.deleteStudent("ucbs", rollNoController.text);
