@@ -6,11 +6,11 @@ class ProductModel {
   bool? isAvailable;
 
   ProductModel({
-    this.id,
-    this.name,
-    this.price,
-    this.description,
-    this.isAvailable,
+    required this.id,
+    required this.name,
+    required this.price,
+    required this.description,
+    required this.isAvailable,
   });
 
   ProductModel.fromJson(Map<String, dynamic> json) {
