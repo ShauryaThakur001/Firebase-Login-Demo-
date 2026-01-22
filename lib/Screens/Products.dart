@@ -46,7 +46,7 @@ class Products extends StatelessWidget {
                       ? (data['price'] as num).toDouble()
                       : 0.0,
                   description: data['description'] ?? "No Description",
-                  isAvailable: data['isAvailable'] ?? fals,
+                  isAvailable: data['isAvailable'] ?? false,
                 );
               },
             );
