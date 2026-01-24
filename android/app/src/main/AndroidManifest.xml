@@ -3,6 +3,7 @@
     package="com.example.firebaselogindemo">
 
     <application
+        android:requestLegacyExternalStorage="true"
         android:label="firebaselogindemo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
