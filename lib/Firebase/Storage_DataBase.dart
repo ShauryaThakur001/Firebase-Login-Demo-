@@ -35,6 +35,7 @@ class StorageDatabase {
 
       return downloadUrl;
     } catch (e) {
+      
       print("Image upload error: $e");
       return null;
     }
