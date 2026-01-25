@@ -30,12 +30,7 @@ class _UploadScreenState extends State<UploadScreen> {
             // 📸 PICK IMAGE
             ElevatedButton(
               onPressed: () async {
-                final image = await service.pickImage();
-                if (image != null) {
-                  setState(() {
-                    selectedImage = image;
-                  });
-                }
+                
               },
               child: const Text("Choose Image"),
             ),
@@ -53,16 +48,9 @@ class _UploadScreenState extends State<UploadScreen> {
 
             // ☁️ UPLOAD IMAGE
             ElevatedButton(
-              onPressed: selectedImage == null
-                  ? null
-                  : () async {
-                      imageUrl = await service.uploadImage(
-                        imageFile: selectedImage!,
-                        fileName: "101", // product id
-                      );
-
-                      print("Uploaded Image URL: $imageUrl");
-                    },
+              onPressed:() {
+                
+              },
               child: const Text("Upload Image"),
             ),
           ],

@@ -1,11 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebaselogindemo/Screens/UploadScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
+  await Supabase.initialize(
+    anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2cWF1cnVyZmN0ZXR0YnhoaHRqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkyNTc4MTQsImV4cCI6MjA4NDgzMzgxNH0.WpSua5BcR5lps_2ce4RfEipsWWQgKZB0YPyxyJC4elY",
+    url: "https://qvqaururfctettbxhhtj.supabase.co"
+    );
   runApp(const MyApp());
 }
 
